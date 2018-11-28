@@ -27,7 +27,6 @@ out/
 
 # Gradle files
 .gradle/
-build/
 
 # Local configuration file (sdk path, etc)
 local.properties
@@ -45,7 +44,6 @@ proguard/
 captures/
 
 # IntelliJ
-*.iml
 .idea/workspace.xml
 .idea/tasks.xml
 .idea/gradle.xml
@@ -59,7 +57,6 @@ captures/
 #*.jks
 
 # External native build folder generated in Android Studio 2.2 and later
-.externalNativeBuild
 
 # Google Services (e.g. APIs or Firebase)
 google-services.json
@@ -77,10 +74,8 @@ fastlane/test_output
 fastlane/readme.md
 ### Java template
 # Compiled class file
-*.class
 
 # Log file
-*.log
 
 # BlueJ files
 *.ctxt
@@ -141,7 +136,6 @@ cmake-build-*/
 *.iws
 
 # IntelliJ
-out/
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
@@ -161,8 +155,6 @@ fabric.properties
 # Editor-based Rest Client
 .idea/httpRequests
 ### Gradle template
-.gradle
-/build/
 
 # Ignore Gradle GUI config
 gradle-app.setting
@@ -177,7 +169,6 @@ gradle-app.setting
 # gradle/wrapper/gradle-wrapper.properties
 ### macOS template
 # General
-.DS_Store
 .AppleDouble
 .LSOverride
 
