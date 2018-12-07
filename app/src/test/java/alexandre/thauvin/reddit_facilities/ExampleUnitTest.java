@@ -1,4 +1,4 @@
-package alexandre.thauvin.myapplication;
+package alexandre.thauvin.reddit_facilities;
 
 import org.junit.Test;
 
