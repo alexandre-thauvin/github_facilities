@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="alexandre.thauvin.reddit_facilities">
+    package="alexandre.thauvin.github_facilities">
 
     <application
         android:allowBackup="true"
@@ -9,14 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="alexandre.thauvin.reddit_facilities.MainActivity">
+        <activity android:name="alexandre.thauvin.github_facilities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="alexandre.thauvin.reddit_facilities.SigninActivity"></activity>
+        <activity android:name="alexandre.thauvin.github_facilities.SigninActivity"></activity>
     </application>
 
 </manifest>

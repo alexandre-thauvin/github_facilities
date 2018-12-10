@@ -1,4 +1,4 @@
-package alexandre.thauvin.reddit_facilities;
+package alexandre.thauvin.github_facilities;
 
 public class Post {
     private String title;
