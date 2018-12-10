@@ -1,11 +1,7 @@
-# reddit_facilities
+# github_facilities
 
-Reddit pulling
+github Searching
 
-Reddit Searching
-
-Reddit preferences
-
-Search for your favorite topics on reddit
+Search for your favorite repositories on github
 
 You can SignIn or SignUp for more features.
