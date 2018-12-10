@@ -1,6 +1,13 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Github Facilities</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="id_client">194007304070-q8raskkv3t4tfkg04vl12ns40ha045n9.apps.googleusercontent.com</string>
+
+    <string name="feed">feed</string>
+    <string name="account">account</string>
+
+    <string-array name="kind">
+        <item>user</item>
+        <item>repositories</item>
+    </string-array>
 </resources>

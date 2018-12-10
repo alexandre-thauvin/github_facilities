@@ -10,6 +10,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -50,6 +52,13 @@ public class PostsFragment extends Fragment implements RequestSubReddit.sendData
         // Inflate the layout for this fragment
 
         activity = (MainActivity) getActivity();
+
+        Spinner spinner = v.findViewById(R.id.spinner_kind);
+
+        ArrayAdapter<CharSequence> actionAdapter = ArrayAdapter.createFromResource(activity,
+                R.array.kind, android.R.layout.simple_spinner_item);
+        actionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(actionAdapter);
 
         new RequestSubReddit.MakeRequestTask(this, activity).execute("onepiece");
 

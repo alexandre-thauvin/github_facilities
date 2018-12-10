@@ -6,10 +6,37 @@
     android:orientation="vertical"
     tools:context=".PostsFragment">
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minHeight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Spinner
+            android:id="@+id/spinner_kind"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+        </Spinner>
+
+        <android.support.v7.widget.SearchView
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </android.support.v7.widget.SearchView>
+
+    </LinearLayout>
+
+
+
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_feed"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/post_item" />
+
+
 </LinearLayout>
