@@ -10,11 +10,11 @@ import android.widget.TextView;
 import java.util.List;
 
 
-public class RecyclerSubReddit extends RecyclerView.Adapter<RecyclerSubReddit.ViewHolder> {
+public class RecyclerGithub extends RecyclerView.Adapter<RecyclerGithub.ViewHolder> {
 
     private final List<Post> mValues;
 
-    public RecyclerSubReddit(List<Post> items) {
+    public RecyclerGithub(List<Post> items) {
         mValues = items;
     }
 
@@ -29,7 +29,7 @@ public class RecyclerSubReddit extends RecyclerView.Adapter<RecyclerSubReddit.Vi
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
         holder.mTitle.setText(mValues.get(position).getTitle());
-        holder.mSubreddit.setText(mValues.get(position).getSubreddit());
+        holder.mUser.setText(mValues.get(position).getUser());
         holder.mUrl.setText(mValues.get(position).getUrl());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +48,7 @@ public class RecyclerSubReddit extends RecyclerView.Adapter<RecyclerSubReddit.Vi
     public class ViewHolder extends RecyclerView.ViewHolder {
         private final View mView;
         private final TextView mTitle;
-        private final TextView mSubreddit;
+        private final TextView mUser;
         private final TextView mUrl;
         private Post mItem;
 
@@ -57,13 +57,13 @@ public class RecyclerSubReddit extends RecyclerView.Adapter<RecyclerSubReddit.Vi
             mView = view;
             mUrl = view.findViewById(R.id.url);
             mTitle =  view.findViewById(R.id.title);
-            mSubreddit =  view.findViewById(R.id.subreddit);
+            mUser =  view.findViewById(R.id.subreddit);
 
         }
 
         @Override
         public String toString() {
-            return super.toString() + " '" + mSubreddit.getText() + "'";
+            return super.toString() + " '" + mUser.getText() + "'";
         }
     }
 }

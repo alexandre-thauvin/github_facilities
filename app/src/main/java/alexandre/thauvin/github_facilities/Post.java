@@ -2,22 +2,22 @@ package alexandre.thauvin.github_facilities;
 
 public class Post {
     private String title;
-    private String subreddit;
+    private String user;
     private String url;
 
-    public Post(String title, String subreddit, String url){
+    public Post(String title, String user, String url){
         this.title = title;
 
-        this.subreddit = subreddit;
+        this.user = user;
         this.url = url;
     }
 
-    public String getSubreddit() {
-        return subreddit;
+    public String getUser() {
+        return user;
     }
 
-    public void setSubreddit(String subreddit) {
-        this.subreddit = subreddit;
+    public void setUser(String user) {
+        this.user = user;
     }
 
     public String getUrl() {

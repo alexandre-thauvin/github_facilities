@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class PostsFragment extends Fragment implements RequestSubReddit.sendDataResponse {
+public class PostsFragment extends Fragment implements RequestGithub.sendDataResponse {
     MainActivity activity;
     List<Post> posts;
     RecyclerView recyclerView;
@@ -60,7 +60,7 @@ public class PostsFragment extends Fragment implements RequestSubReddit.sendData
         actionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(actionAdapter);
 
-        new RequestSubReddit.MakeRequestTask(this, activity).execute("onepiece");
+        new RequestGithub.MakeRequestTask(this, activity).execute("onepiece");
 
         posts = new ArrayList<>();
 
@@ -79,23 +79,22 @@ public class PostsFragment extends Fragment implements RequestSubReddit.sendData
 
                 try {
                     JSONObject response = new JSONObject(result);
-                    JSONObject data = response.getJSONObject("data");
-                    JSONArray hotTopics = data.getJSONArray("children");
+                    JSONArray list = response.getJSONArray("items");
 
-                    for (int i = 0; i < hotTopics.length(); i++) {
-                        JSONObject topic = hotTopics.getJSONObject(i).getJSONObject("data");
+                    for (int i = 0; i < list.length(); i++) {
+                        JSONObject item = list.getJSONObject(i);
 
-                        String url = topic.getString("url");
-                        String title = topic.getString("title");
-                        String subreddit = topic.getString("subreddit");
+                        String url = item.getString("url");
+                        String title = item.getString("login");
+                        String repo = item.getString("subreddit");
 
-                        posts.add(new Post(title, subreddit, url));
+                        posts.add(new Post(title, repo, url));
                     }
 
                 } catch (org.json.JSONException e) {
                     e.getMessage();
                 }
-                recyclerView.setAdapter(new RecyclerSubReddit(posts));
+                recyclerView.setAdapter(new RecyclerGithub(posts));
 
                 //tv.setText(response);
             }

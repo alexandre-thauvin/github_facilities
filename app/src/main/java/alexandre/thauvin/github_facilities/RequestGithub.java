@@ -11,7 +11,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class RequestSubReddit {
+public class RequestGithub {
 
     public interface sendDataResponse {
         void sendData(String str);
@@ -38,9 +38,24 @@ public class RequestSubReddit {
 
         @Override
         protected String doInBackground(String... params) {
-            Request request = new Request.Builder()
-                    .url("https://www.reddit.com/r/" + params[0] + "/.json")
-                    .build();
+            Request request;
+            if (params[0].equals("users")) {
+                request = new Request.Builder()
+                        .url("https://api.github.com/search/users?q=" + params[1])
+                        .build();
+            }
+
+            else if (params[1].equals("repo")){
+                request = new Request.Builder()
+                        .url("https://api.github.com/search/repositories?q=" + params[1])
+                        .build();
+            }
+
+            else {
+                request = new Request.Builder()
+                        .url("https://api.github.com/search/repositories?q=" + params[1] + "+language:" + params[2])
+                        .build();
+            }
 
             try {
                 Response response = client.newCall(request).execute();
