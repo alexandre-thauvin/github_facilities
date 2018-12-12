@@ -13,9 +13,12 @@ import java.util.List;
 public class RecyclerGithub extends RecyclerView.Adapter<RecyclerGithub.ViewHolder> {
 
     private final List<Post> mValues;
+    private final PostsFragment.OnFragmentInteractionListener mListener;
 
-    public RecyclerGithub(List<Post> items) {
+
+    public RecyclerGithub(List<Post> items, PostsFragment.OnFragmentInteractionListener listener) {
         mValues = items;
+        mListener = listener;
     }
 
     @Override
@@ -35,7 +38,7 @@ public class RecyclerGithub extends RecyclerView.Adapter<RecyclerGithub.ViewHold
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                mListener.onFragmentInteraction(holder.mItem.getUrl());
             }
         });
     }
@@ -57,7 +60,7 @@ public class RecyclerGithub extends RecyclerView.Adapter<RecyclerGithub.ViewHold
             mView = view;
             mUrl = view.findViewById(R.id.url);
             mTitle =  view.findViewById(R.id.title);
-            mUser =  view.findViewById(R.id.subreddit);
+            mUser =  view.findViewById(R.id.user);
 
         }
 

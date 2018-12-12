@@ -7,7 +7,6 @@ public class Post {
 
     public Post(String title, String user, String url){
         this.title = title;
-
         this.user = user;
         this.url = url;
     }

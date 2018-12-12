@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import java.lang.ref.WeakReference;
+import java.util.List;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -17,7 +18,7 @@ public class RequestGithub {
         void sendData(String str);
     }
 
-    public static class MakeRequestTask extends AsyncTask<String, Void, String> {
+    public static class MakeRequestTask extends AsyncTask<List<String>, Void, String> {
         OkHttpClient client = new OkHttpClient();
         private sendDataResponse dataInterface;
         private WeakReference<Context> contextRef;
@@ -37,23 +38,23 @@ public class RequestGithub {
         }
 
         @Override
-        protected String doInBackground(String... params) {
+        protected String doInBackground(List<String>... params) {
             Request request;
-            if (params[0].equals("users")) {
+            if (params[0].get(0).equals("users")) {
                 request = new Request.Builder()
-                        .url("https://api.github.com/search/users?q=" + params[1])
+                        .url("https://api.github.com/search/users?q=" + params[0].get(1))
                         .build();
             }
 
-            else if (params[1].equals("repo")){
+            else if (params[0].get(0).equals("repo")){
                 request = new Request.Builder()
-                        .url("https://api.github.com/search/repositories?q=" + params[1])
+                        .url("https://api.github.com/search/repositories?q=" + params[0].get(1))
                         .build();
             }
 
             else {
                 request = new Request.Builder()
-                        .url("https://api.github.com/search/repositories?q=" + params[1] + "+language:" + params[2])
+                        .url("https://api.github.com/search/repositories?q=" + params[0].get(1) + "+language:" + params[0].get(2))
                         .build();
             }
 

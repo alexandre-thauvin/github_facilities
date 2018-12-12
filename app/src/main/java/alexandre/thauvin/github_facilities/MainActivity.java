@@ -9,7 +9,7 @@ import android.os.Bundle;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 
-public class MainActivity extends AppCompatActivity implements AccountFragment.OnFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity implements AccountFragment.OnFragmentInteractionListener, PostsFragment.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +49,12 @@ public class MainActivity extends AppCompatActivity implements AccountFragment.O
 
     @Override
     public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void onFragmentInteraction(String url) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment_layout, WebViewFragment.newInstance(url)).commit();
 
     }
 }
