@@ -1,7 +1,6 @@
 package alexandre.thauvin.github_facilities;
 
 
-import android.net.Uri;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,7 +8,7 @@ import android.os.Bundle;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 
-public class MainActivity extends AppCompatActivity implements AccountFragment.OnFragmentInteractionListener, PostsFragment.OnFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity implements PostsFragment.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,16 +39,14 @@ public class MainActivity extends AppCompatActivity implements AccountFragment.O
                         break;
                     default :
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment_layout, new PostsFragment()).commit();
+                        break;
 
                 }
+
                 return true;
             }
         });
-    }
-
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment_layout, new PostsFragment()).commit();
     }
 
     @Override

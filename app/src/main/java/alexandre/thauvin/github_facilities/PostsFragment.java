@@ -23,6 +23,7 @@ import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -64,6 +65,8 @@ public class PostsFragment extends Fragment implements RequestGithub.sendDataRes
         spinner.setAdapter(actionAdapter);
 
         final SearchView searchView = v.findViewById(R.id.search_bar);
+
+
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
